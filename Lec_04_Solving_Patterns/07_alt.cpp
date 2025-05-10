@@ -30,5 +30,25 @@ int main()
       cout << endl;
       i++;
    }
+
+   // while (i <= n)
+   // {
+   //    int j = 1;
+   //    while (j <= i)
+   //    {
+   //       cout << i + j << " ";
+   //       j++;
+   //    }
+   //    cout << endl;
+   //    i++;
+   // }
+   /*
+   Enter a number: 5
+      2
+      3 4
+      4 5 6
+      5 6 7 8
+      6 7 8 9 10
+   */
    return 0;
 }
