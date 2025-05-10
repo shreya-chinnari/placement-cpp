@@ -1,7 +1,9 @@
 ﻿# placement-cpp
 
-> Lecture 04 : Solving Patterns
+> 10 May 2025
 
-- 10 May 2025
+- Lecture 04 : Solving Patterns
 
-> Lecture 05 :
+> 11 May 2025
+
+- Lecture 05 :
