@@ -1,1 +1,3 @@
-cout << endl; // print a new line after each inner loop
+
+   // int b = 1;
+   // int b = 10; // error: redeclaration of 'b'
