@@ -106,3 +106,33 @@
       B C D E
       C D E F
       D E F G
+
+> 14\_ Enter a number: 5
+
+      A
+      B B
+      C C C
+      D D D D
+      E E E E E
+
+> 15\_ Enter a number: 4
+
+      A
+      B C
+      D E F
+      G H I J
+
+> 16\_ Enter a number: 4
+
+      D
+      D C
+      D C B
+      D C B A
+
+> 17\_ Enter a number: 5
+
+      E
+      D E
+      C D E
+      B C D E
+      A B C D E
