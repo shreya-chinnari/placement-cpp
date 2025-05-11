@@ -1,3 +1,5 @@
+// basic for loop structure:
+
 #include <iostream>
 using namespace std;
 
@@ -31,6 +33,8 @@ int main()
    } // 1 2 3 4 5
    cout << endl;
 
+   // for loop with multiple variables
+   // for (initialization; condition; increment/decrement)
    for (int a = 0, b = 1; a >= 0 && b >= 1; a--, b--)
    {
       cout << a << " " << b << endl;
