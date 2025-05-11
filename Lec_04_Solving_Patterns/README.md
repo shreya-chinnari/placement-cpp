@@ -86,6 +86,23 @@
       D E F G H
       E F G H I
 
-> 11\_
+> 11\_ Enter a number: 4
 
-> 12\_
+      A B C D
+      A B C D
+      A B C D
+      A B C D
+
+> 12\_ Enter a number: 4
+
+      A B C D
+      E F G H
+      I J K L
+      M N O P
+
+> 13\_ Enter a number: 4
+
+      A B C D
+      B C D E
+      C D E F
+      D E F G
