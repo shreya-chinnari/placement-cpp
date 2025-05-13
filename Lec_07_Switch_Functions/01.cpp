@@ -9,6 +9,7 @@ int main()
 
    switch (n)
    {
+
    case 1:
       cout << "Case 1" << endl;
       // break;
