@@ -16,6 +16,7 @@ void printArray(int arr[], int size)
 int max_element(int arr[], int size)
 {
    int max_elem = arr[0];
+   // int max_elem = INT_MIN;
    for (int i = 1; i < size; i++)
    {
       if (max_elem < arr[i])
@@ -31,6 +32,7 @@ int max_element(int arr[], int size)
 int min_element(int arr[], int size)
 {
    int min_elem = arr[0];
+   // int min_elem = INT_MAX;
    for (int i = 1; i < size; i++)
    {
       if (min_elem > arr[i])

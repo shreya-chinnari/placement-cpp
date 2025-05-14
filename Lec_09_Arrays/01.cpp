@@ -16,6 +16,17 @@ void printArray(int arr[], int size)
 }
 int main()
 {
+   // ✅ Uninitialised array
+
+   int empty_arr[20];
+   printArray(empty_arr, 20); // -1865934784 32759 -1865935547 32759 -576895888 651 0 0 0 0 0 1 -593495664 250 -1865934568 32759 -576895888 651 0 1
+   // because the array empty_arr is not initialized { garbage values }
+
+   // ✅ Accessing index outside array size
+
+   int new_arr[5] = {1, 2, 3, 4, 5};
+   cout << "new_arr[10]: " << new_arr[10] << endl; // random garbage value
+
    // ✅ For zero initialization:
 
    int a[10] = {};
