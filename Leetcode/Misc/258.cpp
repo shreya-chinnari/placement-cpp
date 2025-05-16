@@ -22,8 +22,12 @@ Constraints:
 #include <iostream>
 using namespace std;
 
-int main(int num)
+int main()
 {
+   int num;
+   cout << "Enter a number: ";
+   cin >> num;
+
    while (num >= 10)
    { // 38 -------------> 11
       int sum = 0;
@@ -35,6 +39,7 @@ int main(int num)
       }
       num = sum; // 11 -------------> 2
    }
+   cout << "Resulting single digit: " << num << endl;
    return 0;
 }
 
