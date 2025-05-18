@@ -53,3 +53,23 @@ int main()
 
    return 0;
 }
+
+/*
+1st loop:
+    reversedHalf = 1
+    x = 1232
+
+2nd loop:
+    reversedHalf = 12
+    x = 123
+
+3rd loop:
+    reversedHalf = 123
+    x = 12
+
+Now x < reversedHalf, so we stop
+
+Check:
+   x == reversedHalf / 10 → 12 == 123 / 10 → 12 == 12 ✅
+
+*/
