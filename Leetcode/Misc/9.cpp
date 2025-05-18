@@ -31,7 +31,7 @@ bool isPalindrome(int x)
    while (x > reversedHalf)
    {
       int digit = x % 10;
-      reversedHalf = reversedHalf * 10 + digit;
+      reversedHalf = reversedHalf * 10 + digit; // Shifts the previous digits left (like moving from 4 to 40, or 43 to 430). --> Adds the new digit at the rightmost position.
       x /= 10;
    }
 
