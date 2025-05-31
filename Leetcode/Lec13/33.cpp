@@ -77,13 +77,13 @@ public:
       int n = nums.size();
       int pivotIndex = pivot(nums, nums.size());
 
-      // This checks whether the target lies in the right sorted subarray, which starts at the pivot and ends at n-1.
-      if (nums[pivotIndex] <= target && target <= nums[n - 1])
+      // This checks whether the target lies in the right sorted subarray, which starts at the pivot and ends at n-1. // second part of the rotated array.
+      if (target >= nums[pivotIndex] && target <= nums[n - 1])
       {
          return binarySearch(nums, pivotIndex, n - 1, target);
       }
       else
-      { // Otherwise, we search in the left sorted subarray: 0 to pivotIndex - 1.
+      { // Otherwise, we search in the left sorted subarray: 0 to pivotIndex - 1. // firsr part of the rotated array.
          return binarySearch(nums, 0, pivotIndex - 1, target);
       }
    }
