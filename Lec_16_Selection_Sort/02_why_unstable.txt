@@ -1,0 +1,43 @@
+Selection Sort compares only the values, like this:
+
+if (arr[j] < arr[min_index])
+    min_index = j;
+
+So when it encounters (4, 'A') and (4, 'C'), the values are equal.
+Because arr[j] < arr[min_index] is false, no update happens.
+
+BUT — the problem comes during the swap.
+
+🔁 Let’s See Where It Fails:
+
+Starting with:
+
+    Index:  0         1         2         3
+            (4, 'A')  (5, 'B')  (4, 'C')  (3, 'D')
+    Pass 1: Minimum is (3, 'D') → swap with (4, 'A')
+
+Now:
+
+    (3, 'D')  (5, 'B')  (4, 'C')  (4, 'A')
+    Pass 2: Minimum is (4, 'C') (index 2) → swap with (5, 'B')
+
+Now:
+
+    (3, 'D')  (4, 'C')  (5, 'B')  (4, 'A')
+    Pass 3: Minimum is (4, 'A') (index 3) → swap with (5, 'B')
+
+Now:
+
+    (3, 'D')  (4, 'C')  (4, 'A')  (5, 'B')
+    Now look: (4, 'C') came after (4, 'A') originally, but is before it in the final array.
+
+Selection sort doesn’t just compare — it swaps. And when it swaps:
+
+    It moves a smaller or equal value forward
+    Even if two values are equal, it can swap them, breaking order
+
+It doesn’t check:
+
+“Is this equal to another 4? Should I maintain order?”
+
+So even though the values are equal, the element from the later index (like (4, 'A')) gets moved ahead of an earlier one (like (4, 'C')) — reversing their order.
