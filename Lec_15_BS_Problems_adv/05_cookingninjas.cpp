@@ -101,6 +101,7 @@ int minTimeToCook(vector<int> &ranks, int m)
 
 int main()
 {
+   // Input number of test cases
    int T;
    cout << "Enter number of test cases: ";
    cin >> T;
