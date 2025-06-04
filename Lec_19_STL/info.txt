@@ -1,0 +1,62 @@
+🎯 Advantages of STL
+
+   ✅ Saves time — ready-made, tested components
+   ✅ Type-safe and generic using templates
+   ✅ Highly optimized for performance
+   ✅ Reduces code duplication
+
+🧱 Components of STL
+
+STL is broadly divided into four main components:
+
+1. Containers
+Used to store collections of data.
+
+   Type	         Examples	                         Description
+   ---	         -------	                         -----------
+   Sequence	      vector, list, deque	             Linear, ordered collections
+   Associative	   set, map, multiset, multimap	    Sorted key-based access
+   Unordered	   unordered_set, unordered_map	    Hash table–based collections
+   Adapters	      stack, queue, priority_queue	    Modify interface of other containers
+
+2. Algorithms
+Predefined functions for operations like:
+
+   Searching (find)
+   Sorting (sort)
+   Merging (merge)
+   Counting (count)
+   Reversing (reverse)
+
+3. Iterators
+Act like pointers to traverse containers.
+
+Types:
+
+   InputIterator
+   OutputIterator
+   ForwardIterator
+   BidirectionalIterator
+   RandomAccessIterator
+
+4. Function Objects (Functors)
+
+Objects that can be called like functions.
+Useful in custom comparisons during sorting, etc.
+------------------------------------------------------------------
+
+ARRAYS: 
+
+   Operation             	Function
+
+   Access element	         at(), []
+   First / last element	   front(), back()
+   Size	                  size()
+   Fill with value	      fill()
+   Sort / Reverse	         sort(), reverse()
+   Empty check	            empty()
+   Swap arrays	            swap()
+   Raw pointer access	   data()
+
+VECTORS:
+
