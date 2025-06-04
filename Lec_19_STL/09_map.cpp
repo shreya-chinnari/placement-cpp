@@ -46,8 +46,21 @@ int main()
    }
    else
    {
-      cout << "Key 6 found: " << m[6] << endl;
+      cout << "Key 6 found: " << m[6] << endl
+           << endl;
    }
+   cout << endl;
+
+   // Check if a key exists using count()
+   if (m.count(3))
+   {
+      cout << "Key : 3 " << " exists in the map with value: " << m[3] << endl;
+   }
+   else
+   {
+      cout << "Key : 3 " << " does NOT exist in the map.\n";
+   }
+   cout << "-----------------------------\n";
 
    // Erase element by key
    m.erase(1); // Removes the element with key 1
