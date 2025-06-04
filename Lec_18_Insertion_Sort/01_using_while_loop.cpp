@@ -16,7 +16,7 @@ void insertionSortWhileLoop(int arr[], int n)
       while (j >= 0 && arr[j] > key)
       {
          arr[j + 1] = arr[j]; // Shift larger element one position ahead
-         j--;
+         j--;                 // Move to the previous element
       }
 
       arr[j + 1] = key; // Insert the key into its correct location
