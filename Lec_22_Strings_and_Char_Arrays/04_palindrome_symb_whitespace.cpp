@@ -1,3 +1,5 @@
+//  C++ program that checks if a string is a palindrome considering only alphanumeric characters (letters and digits), ignoring whitespace and symbols, and ignoring case differences
+
 #include <iostream>
 #include <cctype>  // for isalnum and tolower
 #include <cstring> // for strlen
