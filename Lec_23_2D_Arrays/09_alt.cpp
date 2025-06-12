@@ -11,16 +11,19 @@ public:
       int row = matrix.size();
       int col = matrix[0].size();
 
-      int count = 0;
+      int count = 0; // Keeps track of how many elements have been added to the answer.
       int total = row * col;
 
       // Index initialization
+      // top and bottom limits.
       int startingRow = 0;
       int endingRow = row - 1;
+      // left and right limits.
       int startingCol = 0;
       int endingCol = col - 1;
+      // Each time a row or column is printed, the corresponding boundary is moved inward.
 
-      while (count < total)
+      while (count < total) // Keeps traversing until all total elements are added to the result (ans). Each iteration covers one outer layer of the matrix.
       {
          // Print starting row
          for (int index = startingCol; index <= endingCol && count < total; index++)
@@ -77,3 +80,12 @@ int main()
 
    return 0;
 }
+
+/*
+🔐 Why count < total in each loop?
+
+✅ Prevents duplicate entries when rows/columns overlap in small or edge cases, like:
+   1×N or N×1 matrices
+Odd dimensions (e.g. 3×3, where middle element would be traversed twice)
+
+*/
