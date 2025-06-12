@@ -70,7 +70,14 @@ vector<int> segmentedSieve(int L, int R)
 
       // Mark all multiples of 'prime' in the range as not prime
       for (int j = start; j <= R; j += prime)
-         isPrime[j - L] = false; // j - L is the index in isPrime[]
+         isPrime[j - L] = false; // j - L is the index in isPrime[] , We're not storing numbers directly from 0 to R, but from L to R. So we need to shift the index when marking.
+
+      /*
+      Example:
+
+      -   If L = 10 and j = 12, then j - L = 2.
+      -   So, isPrime[2] = false → means 12 is not a prime.
+      */
    }
 
    // Collect the remaining prime numbers in [L, R]
