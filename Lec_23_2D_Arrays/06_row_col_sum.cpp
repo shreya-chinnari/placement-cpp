@@ -20,6 +20,7 @@ int main()
       }
    }
 
+   // sum - row wise
    cout << "\nRow-wise Sums:\n";
    for (int i = 0; i < rows; i++)
    {
@@ -31,5 +32,17 @@ int main()
       cout << "Sum of row " << i << ": " << rowSum << endl;
    }
 
+   // sum - col wise
+
+   cout << "\nColumn-wise Sums:\n";
+   for (int j = 0; j < cols; j++)
+   {
+      int colSum = 0;
+      for (int i = 0; i < rows; i++)
+      {
+         colSum += arr[i][j];
+      }
+      cout << "Sum of column " << j << ": " << colSum << endl;
+   }
    return 0;
 }
