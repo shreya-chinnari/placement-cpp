@@ -1,0 +1,30 @@
+🔴 Why uninitialized pointers are dangerous
+When you write:
+
+int* ptr;
+
+   This declares a pointer named ptr.
+   But it does not initialize it.
+   So ptr will contain a garbage address — some random value.
+
+If you try to dereference it like *ptr, it could:
+
+   Crash your program (segmentation fault),
+   Corrupt memory,
+   Cause undefined behavior.
+
+✅ Best practices
+
+1. Initialize to nullptr if you're not ready to assign it yet:
+
+int* ptr = nullptr;
+
+   Safe to check: if (ptr != nullptr)
+   Safer than leaving it uninitialized.
+
+2. Or assign it to a valid memory location:
+
+int var = 10;
+int* ptr = &var; 
+
+   Now ptr safely points to var.
