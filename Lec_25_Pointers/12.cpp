@@ -52,5 +52,64 @@ int main()
    p: 0x4ce85ffcf0
    *p: 6 [*p is num → so num++ happens]
    */
+
+   // COPY A POINTER
+
+   int *q = p;
+
+   cout << "p: " << p << endl;   // address of num
+   cout << "*p: " << *p << endl; // value at address p → 6
+   cout << "q: " << p << endl;   // same address as p
+   cout << "*q: " << *p << endl; // same value as *p → 6
+
+   /*
+   p: 0xf8989ffde4
+   *p: 6
+   q: 0xf8989ffde4
+   *q: 6
+   */
+
+   /*
+   int *q = *p; // ❌ Invalid
+
+   Explanation:
+      *p is an int (i.e., value of num), not an address.
+      You cannot assign an int to an int*.
+   */
+
+   int val = *p;                   // OK, val is an int
+   cout << "val: " << val << endl; // value of num -> 6
+
+   // Pointer to Pointer
+
+   int **r = &p; // q holds address of p
+
+   cout << "p: " << p << endl;     // address of num
+   cout << "*p: " << *p << endl;   // value of num → 6
+   cout << "r: " << r << endl;     // address of p
+   cout << "*r: " << *r << endl;   // value at address of p → address of num
+   cout << "**r: " << **r << endl; // value at address of num → 6
+
+   /*
+   p: 0xd588dffa5c
+   *p: 6
+   r: 0xd588dffa50
+   *r: 0xd588dffa5c
+   **r: 6
+   */
+
+   // Triple Pointer (int ***s = &q)
+
+   // int **r = &p; [done]
+   int ***s = &r; // s holds address of r
+
+   cout << "***s: " << ***s << endl; // 6
+
+   /*
+   r: 0x68537ffd30
+   *r: 0x68537ffd3c
+   **r: 6
+   ***s: 6
+   */
    return 0;
 }
