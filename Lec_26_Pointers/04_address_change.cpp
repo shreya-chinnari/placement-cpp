@@ -5,7 +5,8 @@ int main()
 {
    // The array 'arr' is stored as a contiguous block of memory.
    // In the symbol table: 'arr' is associated with a fixed memory address (e.g., 0x1000),
-   // and cannot be reassigned like a pointer (hence, arr = arr + 1; would be illegal).
+   // and cannot be reassigned like a pointer
+   // (hence, arr = arr + 1; would be illegal).
    int arr[5] = {10, 20, 30, 40, 50};
 
    // Pointer 'p' is created and initialized to point to the base address of 'arr'.
