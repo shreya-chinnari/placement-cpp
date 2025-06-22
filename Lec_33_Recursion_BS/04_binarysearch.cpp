@@ -7,6 +7,7 @@ bool binarySearch(int arr[], int s, int e, int key)
    // Base case: start > end means key is not found
    if (s > e)
       return false;
+   // return -1;
 
    // Calculate mid index safely
    int mid = s + (e - s) / 2;
