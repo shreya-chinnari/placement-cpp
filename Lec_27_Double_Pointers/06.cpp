@@ -89,3 +89,24 @@ int main()
 
    return 0;
 }
+
+/*
+=========================
+Initial state: a = 10, ptr = 0xabbdff7cc, *ptr = 10
+=========================
+
+[passByValue] Before: x = 10
+[passByValue] After: x = 100 (only local x changed)
+[main] After passByValue: a = 10 (unchanged)
+
+[passByPointerSafe] Before: x (address) = 0xabbdff7cc, *x = 10
+[passByPointerSafe] After: x = 0xabbdff7d0, *x = -1142949808 (main sees updated value, not address)
+[main] After passByPointerSafe: a = 77 (updated to 77)
+
+Before passByDoublePointer: a = 77, ptr = 0xabbdff7cc, *ptr = 77
+
+[passByDoublePointer] Before: x = 0xabbdff7c0, *x = 0xabbdff7cc, **x = 77
+[passByDoublePointer] After: x = nullptr, *x = &newVal, **x = 888 (updated)
+[main] After passByDoublePointer: *ptr = 888, ptr points to new value (888)
+
+*/
