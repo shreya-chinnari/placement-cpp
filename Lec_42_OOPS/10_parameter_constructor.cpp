@@ -8,7 +8,7 @@ private:
    string name;
 
 public:
-   // Constructor
+   // Parameterized Constructor
    Base(int a, string n)
    {
       age = a;

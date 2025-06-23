@@ -12,6 +12,8 @@ public:
    {
       cout << "constructor called!" << endl;
    } // Default constructor
+   // jab aap khud hi constructor define karte ho, toh compiler default constructor nahi banata, woh delete ho jata hai
+   // jo aap banayenge wahi exist karega
 };
 
 int main()
