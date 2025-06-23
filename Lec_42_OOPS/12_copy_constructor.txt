@@ -1,0 +1,20 @@
+A copy constructor is a special constructor that creates a new object as a copy of an existing object.
+
+ClassName(const ClassName& other) {
+    // copy logic
+}
+
+   - [other] is the object being copied.
+   - const ensures the original object isn't modified.
+   - [&] avoids copying it by value (which would call the copy constructor again → infinite recursion).
+
+🔍 When Is a Copy Constructor Called?
+
+Automatically called in these situations:
+
+   1. Passing an object by value to a function.
+   2. Returning an object by value from a function.
+   3. Initializing an object from another:
+
+      Hero h2 = h1;  // invokes copy constructor
+      Hero h2(h1);   // invokes copy constructor
