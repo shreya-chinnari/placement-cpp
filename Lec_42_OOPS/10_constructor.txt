@@ -1,0 +1,40 @@
+🔷 What Is a Constructor?
+
+   A constructor is a special function inside a class that is automatically called when an object of that class is created.
+
+✅ Key Features:
+
+   > Has the same name as the class.
+   > No return type, not even void.
+   > No input parameters
+   > Can be overloaded (multiple constructors with different parameters).
+   > Used to initialize object members at creation time.
+
+🎯 Why Use a Constructor?
+
+   Without a constructor, you would have to manually call setter functions (or assign directly) every time you create an object. Constructors automate and guarantee proper initialization.
+
+   🔁 Without Constructor:
+
+      Base obj;
+      obj.setAge(25);
+      obj.setName("Alice");
+   
+   ✅ With Constructor:
+
+      Base obj(25, "Alice");  // Done in one line
+
+⚙️ What Happens Behind the Scenes?
+
+   When you write:
+      Base obj(25, "Alice");
+
+   The compiler:
+
+      > Allocates memory for obj.
+      > Automatically creates a default constructor of name "Base", 
+      > Calls the matching constructor with parameters (25, "Alice").
+      > Initializes the data members as per your constructor code.
+      > Returns a fully constructed object.
+
+   This ensures the object is ready for use immediately after creation.
