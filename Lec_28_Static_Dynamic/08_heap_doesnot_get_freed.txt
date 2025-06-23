@@ -1,0 +1,18 @@
+✅ Stack:
+
+   The stack follows a strict LIFO (Last In, First Out) structure.
+   When a function or block begins, its local variables (like int i) are pushed onto the stack.
+   When the block ends (e.g., end of a loop iteration or function return), the stack automatically "pops" and frees that memory.
+   This is fast and managed by the CPU and compiler — no manual cleanup needed.
+
+⚠️ Heap: 
+
+   The heap is a large pool of memory used for dynamic allocation (via new, malloc, etc.).
+   It does not follow any automatic structure — the programmer must manually free it using delete or free.
+   If you don’t, the memory stays allocated — this is called a memory leak.
+
+🧠 Underlying Concept:
+
+Stack: Managed by the call stack, cleaned up by compiler/runtime.
+
+Heap: Managed by the OS and memory allocator, must be manually cleaned up.
