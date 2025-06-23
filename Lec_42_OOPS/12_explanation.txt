@@ -1,0 +1,78 @@
+🔵 START → 
+
+main()
+
+ └── Step 1: Hero h1(25, "Ramesh");
+       ↓
+       ➤ Parameterized Constructor called
+         - this->age = 25
+         - this->name = "Ramesh"
+         - Object h1 now exists in memory
+
+ └── Step 2: Hero h2 = h1;
+       ↓
+       ➤ Copy Constructor called
+         - `original` is h1 (passed by const reference)
+         - Copies h1.age and h1.name into new object h2
+         - Object h2 now exists as a deep copy of h1
+
+ └── Step 3: showHero(h1);
+       ↓
+       ➤ Copy Constructor called
+         - h1 is passed **by value**
+         - New object `h` (local to showHero) is created via copy constructor
+         - h.age = 25, h.name = "Ramesh"
+
+       ↓
+       showHero()
+         └── h.display();
+               ➤ Outputs: Name: Ramesh, Age: 25
+         ↑
+       Function ends — local object `h` is destroyed
+
+ └── Step 4: Hero h3 = createHero();
+       ↓
+       ➤ createHero() called
+         └── Hero temp(100, "TempHero");
+               ➤ Parameterized Constructor called
+                 - temp.age = 100
+                 - temp.name = "TempHero"
+
+         └── return temp;
+               → ⚠️ Two cases:
+                  1️⃣ If **copy elision / NRVO is OFF**:
+                     ➤ Copy Constructor is called to return `temp` into `h3`
+                  2️⃣ If **NRVO is ON (most compilers)**:
+                     ➤ temp is constructed directly into `h3` → no copy constructor call
+
+         - Object h3 now exists with age = 100, name = "TempHero"
+ └── Final Displays:
+       ➤ h1.display();  → Outputs: Ramesh, 25
+       ➤ h2.display();  → Outputs: Ramesh, 25
+       ➤ h3.display();  → Outputs: TempHero, 100
+
+
+
+
+| Object | Created How                   | Constructor Called        | Lifetime                 |
+| ------ | ----------------------------- | ------------------------- | ------------------------ |
+| `h1`   | `Hero(25, "Ramesh")`          | Parameterized constructor | Full `main()`            |
+| `h2`   | `Hero h2 = h1;`               | Copy constructor          | Full `main()`            |
+| `h`    | `Hero h` in `showHero()`      | Copy constructor          | Only inside `showHero()` |
+| `temp` | `Hero temp` in `createHero()` | Parameterized constructor | Inside `createHero()`    |
+| `h3`   | `Hero h3 = createHero();`     | Copy constructor or NRVO  | Full `main()`            |
+
+
+
+🔁 FUNCTION CALL GRAPH
+
+main()
+ ├── Constructor for h1
+ ├── Copy constructor for h2
+ ├── showHero(h1)
+ │     ├── Copy constructor (for h)
+ │     └── display()
+ ├── createHero()
+ │     ├── Constructor for temp
+ │     └── [Maybe] Copy constructor for h3
+ └── display() for h1, h2, h3
