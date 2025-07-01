@@ -14,7 +14,7 @@ int main()
    greet("Shreya");    // Uses default age
    greet("Rahul", 25); // No defaults used
    return 0;
-}
+} 
 
 /*
 Hello, Guest! Age: 18
