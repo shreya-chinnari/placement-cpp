@@ -1,0 +1,16 @@
+> not contiguous location
+
+> no fixed size
+
+> starting point of LL - "head"
+
+> we hop to "next" element's adress
+
+> end of LL - null ptr
+
+> 1D {only knows direction to next element, not prev element}
+
+TIME COMPLEXITY:
+   traversal - O(n)
+   finding length - O(n)
+   searching for an element - O(n) {best case : O{1} , avg : O{n/2}}
