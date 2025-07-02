@@ -69,4 +69,26 @@ head
    * means pointer to next node.
    The last node (3) points to nullptr, marking the end of the list.
 ------------------
+
+
+
+
+
+
+
+Node* convertARRtoLL(vector<int>& arr)
+{
+   Node* head = new Node(arr[0]);       // Step 1: Create the head node
+   Node* mover = head;                  // Step 2: A pointer to traverse and build the list
+
+   for (int i = 1; i < arr.size(); i++) // Step 3: Loop through the rest of the array
+   {
+      Node* temp = new Node(arr[i]);   // Create a new node for each value
+      mover->next = temp;              // Link current node to the new node
+      mover = mover->next;             // Move to the new node
+   }
+
+   return head;                        // Return the head of the linked list
+}
+
 */
