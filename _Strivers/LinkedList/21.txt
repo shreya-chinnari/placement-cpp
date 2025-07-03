@@ -1,0 +1,23 @@
+pseudocode :
+
+Using Stack {LIFO} 
+
+   stack <int> st;
+
+   // IP:                       TC: O(n)
+      Node* temp = head;
+      while (temp!=NULL) {
+         st.push(temp->data)
+         temp = temp->next;
+      }
+
+   // OP:                       TC: O(n)
+      temp = head;
+      while(temp!=NULL) {
+         temp->data = st.top();
+         st.pop();
+         temp=temp->next;
+      }
+
+it's a 2 pass soltions, so TC: O(2n)
+SC: O(n)
