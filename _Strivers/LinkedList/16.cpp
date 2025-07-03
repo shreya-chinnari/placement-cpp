@@ -1,10 +1,6 @@
 // insert before the head
 // insert after the head
 
-// removing a given node {value given}
-
-// delete K-th element in DLL
-
 #include <iostream>
 #include <vector>
 using namespace std;
