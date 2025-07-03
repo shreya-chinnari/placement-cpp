@@ -1,4 +1,6 @@
 // integrating deleteHead and deleteTail inside main function
+// it's less modular, less reusable, less maintainable
+// it's just for underrstanding
 
 #include <iostream>
 #include <vector>
