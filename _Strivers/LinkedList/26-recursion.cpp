@@ -1,3 +1,6 @@
+// TC: O(n)
+// SC: O(n) - recursive stack space
+
 #include <iostream>
 using namespace std;
 
