@@ -46,58 +46,56 @@ void printList(Node *head)
 
 Node *removeKthElement(Node *head, int k)
 {
-   // First pass: count total nodes
-   int count = 0;
-   Node *temp = head;
-   while (temp != nullptr)
+   // Edge case:  #1:  empty list
+   if (!head)
+      return nullptr;
+
+   Node *fast = head;
+   for (int i = 0; i < k; i++)
    {
-      count++;
-      temp = temp->next;
+      if (fast == nullptr)
+         return head; // Edge case:  #2: k > length {nothing to remove}
+      fast = fast->next;
    }
-   // If head is to be removed
-   if (count == k)
+
+   // Edge case: #3:   k == length → need to remove head
+   if (!fast)
    {
       Node *newHead = head->next;
-      delete (head);
+      delete head;
       return newHead;
    }
-   // otherwise
-   // Second pass: reach (count - k - 1)th node
-   int result = count - k; // node before [deleteNode]
-   temp = head;
-   while (temp != NULL)
-   {
-      result--;
-      if (result == 0)
-         break; // stop when reached
-      temp = temp->next;
-   }
-   /*
 
-   while(--result) { temp = temp->next }
-   */
-   Node *deleteNode = temp->next;
-   temp->next = temp->next->next;
-   delete (deleteNode);
+   Node *slow = head;
+   while (fast->next != NULL)
+   {
+      slow = slow->next;
+      fast = fast->next;
+   } // fast reaches the last-node of list, slow reaches the node previous to the node to be deleted
+   Node *delNode = slow->next;
+   slow->next = slow->next->next;
+
+   delete (delNode);
+
    return head;
 }
-
-// the position from the start of the node to be deleted is count - k
 
 int main()
 {
    int arr[] = {10, 20, 30, 40, 50, 60};
    int n = sizeof(arr) / sizeof(arr[0]);
-   int k = 3; // Remove 3rd node from end → should remove 40
 
    Node *head = convertArr2SLL(arr, n);
 
    cout << "Original List: ";
    printList(head);
 
-   head = removeKthElement(head, k);
+   head = removeKthElement(head, 6);
+   cout << "List after removing 6th node from end (head): ";
+   printList(head);
 
-   cout << "List after removing " << k << "th node from end: ";
+   head = removeKthElement(head, 3);
+   cout << "List after removing 3rd node from end: ";
    printList(head);
 
    return 0;
