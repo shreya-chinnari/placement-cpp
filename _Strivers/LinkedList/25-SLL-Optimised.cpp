@@ -1,6 +1,6 @@
 // Remove Nth Node from the end of LL
 
-// TC : O(length) + O(length - k) === O(2 x length)
+// TC : O(length)
 // SC : O(1)
 
 #include <iostream>
