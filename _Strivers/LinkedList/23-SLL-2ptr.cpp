@@ -56,13 +56,19 @@ Node *groupOddEven(Node *head)
    Node *even = head->next; // starts at i=2
    Node *evenHead = even;   // Save head of even list to attach later
 
-   // Grouping in O(n) time
-   while (even && even->next) // not NULL
-   {
-      odd->next = even->next; // Link odd to next odd
-      odd = odd->next;
+   // Grouping in O(n/2)x2=O(n) time
+   // SC: O(1)
 
-      even->next = odd->next; // Link even to next even
+   while (even && even->next) // not NULL, because even comes after odd so need to check only this
+   {
+      // odd->next = even->next; // Link odd to next odd
+      // odd = odd->next;
+      // even->next = odd->next; // Link even to next even
+      // even = even->next;
+
+      odd->next = odd->next->next;
+      even->next = even->next->next;
+      odd = odd->next;
       even = even->next;
    }
 
