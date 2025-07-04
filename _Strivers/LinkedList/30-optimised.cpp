@@ -88,55 +88,49 @@ void printDLL(Node *head)
    cout << endl;
 }
 
-Node *middleNode(Node *head)
+Node *middleNodeSLLDLL(Node *head)
 {
-   if (!head)
-      return nullptr;
+   Node *slow = head;
+   Node *fast = head;
 
-   // O(n)
-   int count = 0;
-   Node *temp = head;
+   // for odd-length LL : fast will reach last element
+   // for even-length LL : fast will reach "nullptr" (last->next)
 
-   while (temp)
+   while (fast != nullptr && fast->next != nullptr)
    {
-      count++;
-      temp = temp->next;
+      slow = slow->next;
+      fast = fast->next->next;
    }
-
-   int mid = (count / 2) + 1;
-
-   // find middle node { O(n/2) }
-   temp = head;
-   while (temp)
-   {
-      mid--;
-      if (mid == 0) // found mid node
-         break;
-      temp = temp->next;
-
-      /*
-      for (int i = 1; i < midPos; i++) {
-      temp = temp->next;
-      }
-      */
-   }
-
-   return temp;
+   return slow;
 }
+
+// TC : O(n/2)
+// SC : O(1)
 
 // Driver code
 int main()
 {
-   int arr[] = {1, 2, 3, 2, 1};
-   int n = sizeof(arr) / sizeof(arr[0]);
+   int arrODD[] = {1, 2, 3, 2, 1};
+   int n = sizeof(arrODD) / sizeof(arrODD[0]);
 
    cout << "Singly Linked List: ";
-   Node *sllHead = convertArr2SLL(arr, n);
-   printSLL(sllHead);
+   Node *head1 = convertArr2SLL(arrODD, n);
+   printSLL(head1);
 
-   cout << "\nDoubly Linked List: ";
-   Node *dllHead = convertArr2DLL(arr, n);
-   printDLL(dllHead);
+   head1 = middleNodeSLLDLL(head1);
+   cout << "middle node : ";
+   printSLL(head1);
+
+   int arrEVEN[] = {1, 2, 3, 4, 2, 1};
+   int n2 = sizeof(arrEVEN) / sizeof(arrEVEN[0]);
+
+   cout << "Singly Linked List: ";
+   Node *head2 = convertArr2SLL(arrEVEN, n2);
+   printSLL(head2);
+
+   head2 = middleNodeSLLDLL(head2);
+   cout << "middle node : ";
+   printSLL(head2);
 
    return 0;
 }
