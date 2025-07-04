@@ -1,0 +1,61 @@
+✅ Approach 1: Array-Based (Vector) – 2-Pass Method
+
+   🔹 What we did
+      Used a vector<int> arr to store node values.
+      Pass 1: Collected values of nodes at odd positions (1st, 3rd, 5th...).
+      Pass 2: Collected values of nodes at even positions (2nd, 4th, 6th...).
+      Final Pass: Wrote all values back to the original linked list node-by-node.
+
+   🔹 How we used external memory
+      Created a vector<int> of size n (same as number of nodes).
+      Temporarily held all node values during rearrangement.
+
+   🔹 Time Complexity (TC)
+      First pass to collect odd values: O(n/2)
+      Second pass to collect even values: O(n/2)
+      Final pass to overwrite list: O(n)
+
+      ✅ Total: O(n)
+
+   🔹 Space Complexity (SC)
+      ❌ O(n) — due to vector<int> arr holding all node values temporarily.
+
+   🔹 Pros
+      Very easy to understand and implement.
+      Less error-prone (no pointer manipulation).
+      Works for both SLL and DLL without modifying pointers.
+
+   🔹 Cons
+      Not an in-place solution — modifies data, not structure.
+      Uses external memory → not optimal for large datasets.
+
+-----------------------------------------------------------------
+
+✅ Approach 2: Two-Pointer In-Place (Odd-Even Links)
+
+   🔹 What we did
+      Used two pointers:
+      -   odd to track current odd-position node
+      -   even to track current even-position node
+      Rearranged actual pointers (next, and back for DLL) to reorder nodes.
+      At the end, connected odd list tail to even list head.
+
+   🔹 How we used memory
+      No external data structures.
+      Pure pointer manipulation.
+      Used only constant extra space (just 2–3 pointers).
+
+   🔹 Time Complexity (TC)
+      Only one traversal: each node visited once → ✅ O(n)
+
+   🔹 Space Complexity (SC)
+      ✅ O(1) — In-place, no extra space used.
+
+   🔹 Pros
+      ✅ Fully in-place solution.
+      ✅ Maintains node object identity and links.
+      ✅ Memory-efficient — ideal for large linked lists.
+
+   🔹 Cons
+      Slightly more complex pointer manipulation.
+      Must handle edge cases carefully (1-node or NULL).
