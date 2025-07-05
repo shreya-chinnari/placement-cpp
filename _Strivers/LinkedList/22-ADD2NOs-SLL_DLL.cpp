@@ -1,3 +1,7 @@
+// ADD 2 numbers in LL
+
+// L1, L2 given in rversed order, OP should also be in reverse
+
 #include <iostream>
 #include <vector>
 using namespace std;

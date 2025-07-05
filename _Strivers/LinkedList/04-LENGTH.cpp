@@ -1,7 +1,5 @@
 // length of LL
 
-// traversing the LL
-
 #include <iostream>
 #include <vector>
 using namespace std;

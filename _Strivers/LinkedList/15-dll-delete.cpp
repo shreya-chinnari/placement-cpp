@@ -1,3 +1,5 @@
+// DLL - // Deletes the given node (assumes pointer to node is given)
+
 #include <iostream>
 #include <vector>
 using namespace std;
