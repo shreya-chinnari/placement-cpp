@@ -17,7 +17,9 @@ int main()
    cout << "\n Hashmap ---------- " << endl;
    for (int i = 0; i < s.size(); i++)
    {
-      hash[s[i] - 'a']++;
+      if (s[i] >= 'a' && s[i] <= 'z')
+         hash[s[i] - 'a']++;
+
       cout << "char : " << s[i] << "   freq : " << hash[s[i] - 'a'] << endl;
    }
 
@@ -30,6 +32,7 @@ int main()
    {
       char ch;
       cin >> ch;
+
       cout << "frequency of " << ch << " :  " << hash[ch - 'a'] << endl;
    }
    return 0;
