@@ -10,16 +10,22 @@ int main()
 
    int arr[n];
    cout << "Enter elements : " << endl;
+
+   map<int, int> mpp; // pre-computation can be done while taking input
+
    for (int i = 0; i < n; i++)
    {
       cin >> arr[i];
+      mpp[arr[i]]++; // here
    }
 
-   map<int, int> mpp;
-   for (int i = 0; i < n; i++)
-   {
-      mpp[arr[i]]++;
-   }
+   // map<int, int> mpp;
+   // for (int i = 0; i < n; i++)
+   // {
+   //    mpp[arr[i]]++;
+   // }
+
+   // it will reduce one for-loop TO WRITE but won't reduce any computation power _ O(n) instead of O(2n)
 
    int q;
    cout << "Number of queries: " << endl;

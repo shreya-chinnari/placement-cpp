@@ -1,0 +1,33 @@
+// For counting CHARACTERS
+#include <iostream>
+#include <map> // required for std::map
+using namespace std;
+
+int main()
+{
+   string s;
+   cout << "Enter string: ";
+   cin >> s;
+
+   map<char, int> mpp; // character to frequency map
+
+   // Pre-computation while reading string
+   for (char ch : s)
+   {
+      mpp[ch]++;
+   }
+
+   int q;
+   cout << "\nNumber of queries: ";
+   cin >> q;
+
+   while (q--)
+   {
+      char ch;
+      cout << "Character to query: ";
+      cin >> ch;
+      cout << "   Frequency : " << mpp[ch] << endl;
+   }
+
+   return 0;
+}
