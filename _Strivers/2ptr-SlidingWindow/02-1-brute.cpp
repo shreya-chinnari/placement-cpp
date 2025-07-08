@@ -1,4 +1,4 @@
-// longest subarray with sum <= k
+// Type 2  : Longest Subarray / Substring
 
 #include <iostream>
 using namespace std;

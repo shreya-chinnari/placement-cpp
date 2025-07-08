@@ -1,3 +1,5 @@
+// Type 2  : Longest Subarray / Substring
+
 // We want to maintain the max length window without unnecessary shrinking (i.e., don’t shrink if current window already gives max length)
 
 // Expand r (right end)
