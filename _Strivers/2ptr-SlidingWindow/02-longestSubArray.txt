@@ -1,0 +1,40 @@
+🔍 Finding the length of the longest subarray with sum ≤ k
+
+   1. brute
+   2. better
+   3. optimal
+
+   ✅ 1. Brute Force Approach
+      
+   🔧 Method:
+
+      Start from every index i = 0 to n-1
+      For each i, run a loop from j = i to n-1
+      Keep summing arr[j] and check if sum ≤ k
+      If yes → update maxLen
+      If sum > k → break (no point checking longer subarrays from the same start)
+
+   🧠 Time Complexity: O(n²) — Nested loops
+
+   ✅ 2. Better – Sliding Window (for Non-negative Elements)
+   
+   🔧 Method:
+
+      Use two pointers l and r
+      Expand r to include elements
+      Shrink l (from the left) only while sum > k
+      Update maxLen = max(maxLen, r - l + 1) if sum ≤ k
+
+   🧠 Time Complexity: O(n+n)
+   (each element is visited at most twice: once by r, once by l)
+
+   ✅ 3. Optimal – Shrink Lazily (Greedy Shrinking)
+   
+   🔧 Method:
+
+      Similar to sliding window, but instead of while, use if to shrink once
+      Avoid shrinking unless absolutely necessary
+      This maintains the current window as long as possible (greedy expansion)
+
+   🧠 Time Complexity: O(n) 
+   — because we touch each element once
