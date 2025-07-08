@@ -1,50 +1,40 @@
-// Sliding window - Type 1 : Constant Window
-
-// Given an array of integers arr of size n and an integer k, find the maximum sum of any subarray of size k.
-// This is also known as the maximum sum of k consecutive elements in the array.
+// maximum sum of "k" consecutive elements in an array
+// TYPE - 1 : constant window
 
 #include <iostream>
 using namespace std;
 
-int maxSubArray(int arr[], int n, int k)
+int maximumSum(int arr[], int size, int k)
 {
-   // Step 1: Edge case check
-   if (k > n)
-      return -1; // Not enough elements
-
    int sum = 0;
-   int start = 0;
-   int end = k - 1;
+   int start = 0, end = k - 1;
 
-   // Step 2: Calculate the sum of the first window
-
-   for (int i = 0; i < k; i++)
+   for (int i = 0; i <= end; i++)
    {
-      sum += arr[i];
+      sum = sum + arr[i];
    }
-   cout << "Initial window [start: " << start << ", end: " << end << "] sum = " << sum << endl;
+   cout << "\n [" << arr[start] << " , " << arr[end] << "] : " << sum;
 
-   int max_sum = sum;
-
-   while (end < n - 1)
+   int maxSum = sum;
+   while (end < size - 1)
    {
       sum = sum - arr[start];
       start++;
       end++;
+
       sum = sum + arr[end];
-
-      cout << "Window [start: " << start << ", end: " << end << "] sum = " << sum << endl;
-
-      sum = max(max_sum, sum);
+      cout << "\n [" << arr[start] << " , " << arr[end] << "] : " << sum;
+      maxSum = max(sum, maxSum);
    }
+   cout << "\n max sum : ";
 
-   return max_sum;
+   return maxSum;
 }
 
 int main()
 {
-   int arr[10] = {3, 8, 2, 8, 3, 1, 0, 2, 9, 5};
-   int max_sum = maxSubArray(arr, 10, 4);
-   cout << "max_sum = " << max_sum;
+   int arr[10] = {1, 7, 3, 9, 3, 9, 4, 2, 3, 9};
+   cout << maximumSum(arr, 10, 4);
+
    return 0;
-};
+}
