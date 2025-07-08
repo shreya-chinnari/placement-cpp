@@ -20,7 +20,10 @@ int maxLength(int arr[], int n, int k)
       }
 
       // Now sum <= k
-      maxLen = max(maxLen, r - l + 1);
+      if (sum <= k)
+      {
+         maxLen = max(maxLen, r - l + 1);
+      }
    }
    return maxLen;
 }
