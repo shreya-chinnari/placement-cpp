@@ -8,7 +8,7 @@ int parametricFactorial(int n, int product)
 {
    if (n == 0 || n == 1)
    {
-      return product;
+      return 1;
    }
 
    return parametricFactorial(n - 1, product * n);
@@ -23,6 +23,28 @@ int functionalFactorial(int n)
    return n * functionalFactorial(n - 1);
 }
 
+int factorialForLoop(int n)
+{
+   int fact = 1;
+   for (int i = 2; i <= n; i++)
+   {
+      fact *= i;
+   }
+   return fact;
+}
+
+int factorialWhileLoop(int n)
+{
+   int fact = 1;
+   int i = 2;
+   while (i <= n)
+   {
+      fact *= i;
+      i++;
+   }
+   return fact;
+}
+
 int main()
 {
 
@@ -34,5 +56,7 @@ int main()
    cout << "Factorial of " << n << " using functional recursion: "
         << functionalFactorial(n) << endl;
 
+   cout << "Factorial using for loop: " << factorialForLoop(n) << endl;
+   cout << "Factorial using while loop: " << factorialWhileLoop(n) << endl;
    return 0;
 }
