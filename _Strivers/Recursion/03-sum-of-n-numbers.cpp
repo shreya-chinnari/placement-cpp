@@ -36,11 +36,21 @@ int functionalSum(int n)
    return n + functionalSum(n - 1);
 }
 
+// Functional way: Functional Recursive Code to Find Sum from i to n:
+int functionalSumFromIToN(int i, int n)
+{
+   if (i > n)
+      return 0;
+
+   return i + functionalSumFromIToN(i + 1, n);
+}
+
 int main()
 {
    cout << "Sum of first 5 natural numbers (parametric): " << parametricSum(5, 0) << endl;
    cout << "Sum of first 5 natural numbers (parametric i to n): " << parametricSumItoN(1, 5, 0) << endl;
    cout << "Sum of first 5 natural numbers (functional): " << functionalSum(5) << endl;
+   cout << "Sum of first 5 natural numbers (functional i to n): " << functionalSumFromIToN(1, 5) << endl;
 
    return 0;
 }
