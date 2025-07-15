@@ -1,7 +1,7 @@
-// reverse an array using different methods in C++
-
 #include <iostream>
+using namespace std;
 
+// Two pointers method
 void reverseArrayTwoPointers(int arr[], int size)
 {
    int start = 0;
@@ -9,80 +9,66 @@ void reverseArrayTwoPointers(int arr[], int size)
 
    while (start < end)
    {
-      // Swap elements at start and end indices
       int temp = arr[start];
       arr[start] = arr[end];
       arr[end] = temp;
-
-      // Move towards the center
       start++;
       end--;
    }
 }
 
+// Recursion with two indices
 void reverseArrayRecursive(int arr[], int start, int end)
 {
    if (start >= end)
       return;
 
-   // Swap elements at start and end indices
    int temp = arr[start];
    arr[start] = arr[end];
    arr[end] = temp;
 
-   // Recursive call with incremented start and decremented end
    reverseArrayRecursive(arr, start + 1, end - 1);
 }
 
-#include <iostream>
-
-// Reverse Array Using Recursion with a Single Index Variable
+// Recursion with single index
 void reverseArrayRecursiveSingleIndex(int arr[], int i, int size)
 {
    if (i >= size / 2)
       return;
 
-   // Swap arr[i] with arr[size - i - 1]
    int temp = arr[i];
    arr[i] = arr[size - i - 1];
    arr[size - i - 1] = temp;
 
-   // Recursive call
    reverseArrayRecursiveSingleIndex(arr, i + 1, size);
+}
+
+// Print utility
+void printArray(int arr[], int size)
+{
+   for (int i = 0; i < size; ++i)
+      cout << arr[i] << " ";
+   cout << endl;
 }
 
 int main()
 {
-   int arr[] = {1, 2, 3, 4, 5};
-   int size = sizeof(arr) / sizeof(arr[0]);
+   int arr1[] = {1, 2, 3, 4, 5};
+   int arr2[] = {1, 2, 3, 4, 5};
+   int arr3[] = {1, 2, 3, 4, 5};
+   int size = sizeof(arr1) / sizeof(arr1[0]);
 
-   // Reverse using two pointers method
-   reverseArrayTwoPointers(arr, size);
+   reverseArrayTwoPointers(arr1, size);
+   cout << "Reversed array (two pointers): ";
+   printArray(arr1, size);
 
-   std::cout << "Reversed array (two pointers method): ";
-   for (int i = 0; i < size; i++)
-   {
-      std::cout << arr[i] << " ";
-   }
-   std::cout << std::endl;
+   reverseArrayRecursive(arr2, 0, size - 1);
+   cout << "Reversed array (recursive): ";
+   printArray(arr2, size);
 
-   // Reverse using recursion
-   reverseArrayRecursive(arr, 0, size - 1);
-
-   std::cout << "Reversed array (recursive method): ";
-   for (int i = 0; i < size; i++)
-   {
-      std::cout << arr[i] << " ";
-   }
-   std::cout << std::endl;
-
-   // Reverse using recursive function with single index
-   reverseArrayRecursiveSingleIndex(arr, 0, size);
-
-   std::cout << "Reversed array (recursive, single index): ";
-   for (int i = 0; i < size; ++i)
-      std::cout << arr[i] << " ";
-   std::cout << std::endl;
+   reverseArrayRecursiveSingleIndex(arr3, 0, size);
+   cout << "Reversed array (recursive, single index): ";
+   printArray(arr3, size);
 
    return 0;
 }
