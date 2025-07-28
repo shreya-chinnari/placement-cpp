@@ -1,0 +1,83 @@
+🧠 What is “Binary Search on Answers”?
+
+🔑 Definition:
+
+   When you're not searching in a sorted array, but instead trying to find the minimum or maximum possible value that satisfies a certain predicate, you are doing binary search on the solution space.
+
+   You define:
+
+      A search space of answers ([low, high])
+
+      A predicate function isFeasible(mid) that answers:
+      → “Does this candidate answer mid satisfy the condition?”
+
+   Then use binary search to find:
+
+      The minimum (or maximum) value in the answer space that satisfies the predicate.
+
+✅ Common Signs It's a "Binary Search on Answer" Problem
+
+
+   1. 🔍 You're told to find the minimum / maximum possible value satisfying a condition
+   e.g., “Find the smallest divisor such that...”, “Find the minimum number of days...”
+
+   2. 💡 The brute-force solution involves checking a range of numbers, usually from 1 to max(arr), or 1 to 1e9
+   That suggests a numeric answer space you can search over.
+
+   3. 🧪 You can write a function isPossible(mid) or canDo(mid) that:
+   Returns true if mid is a valid answer
+
+   Returns false otherwise
+
+   And: the function is monotonic (true...true...true...false or vice versa)
+
+   4. ⏱ Brute force is too slow, but testing feasibility for one value is fast (e.g., O(n) or O(log n))
+
+
+   -----------------------------------------------------------------------------------------------------
+
+🛠️ General Binary Search on Answers Template
+
+   > This can be used to find minimum value that satisfies a predicate:
+
+      int low = 1, high = 1e9; // Define your search space
+      int answer = -1;
+
+      while (low <= high) {
+         int mid = low + (high - low) / 2;
+
+         if (isFeasible(mid)) {
+            answer = mid;       // mid is a possible answer
+            high = mid - 1;     // try to find a smaller one
+         } else {
+            low = mid + 1;      // mid is too small
+         }
+      }
+      return answer;
+
+
+   > To find maximum possible value, just reverse the direction:
+
+      int low = 1, high = 1e9; // Define your search space
+      int answer = -1;
+
+      while (low <= high) {
+         int mid = low + (high - low) / 2;
+
+         if (isFeasible(mid)) {
+            answer = mid;
+            low = mid + 1;
+         } else {
+            high = mid - 1;
+         }
+      }
+      return answer;
+
+   -----------------------------------------------------------------------------------------------------
+
+
+   🔍 How to Derive isFeasible(mid) (Predicate)
+      Ask yourself:
+
+      “Can I check if this candidate mid works in O(n) or better?”
+      “Is the answer space monotonic?” (e.g., if mid = 6 works, then all values > 6 work too)
