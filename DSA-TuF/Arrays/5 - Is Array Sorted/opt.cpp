@@ -18,8 +18,9 @@ int main()
 {
    int arr1[] = {1, 2, 3, 4, 5};
    int n1 = sizeof(arr1) / sizeof(arr1[0]);
+   +
 
-   int arr2[] = {5, 4, 3, 2, 1};
+       int arr2[] = {5, 4, 3, 2, 1};
    int n2 = sizeof(arr2) / sizeof(arr2[0]);
 
    cout << isSorted(arr1, n1) << endl; // Output: 1 (true)
