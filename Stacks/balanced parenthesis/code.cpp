@@ -16,36 +16,34 @@ bool balanced(string s)
 
    for (auto it : s)
    {
-      // push opening brackets onto the stack
-      if (it == '(' || it == '[' || it == '{')
-      {
+      // opening bracket
+      if (it == '{' || it == '[' || it == '(')
          st.push(it);
-      }
 
-      // if it's a closing bracket
+      // closing bracket
       else
       {
-         // if stack is empty, no opening bracket to match with, no valid pair
+         // 1. no opening bracket to match with
          if (st.empty())
             return false;
 
-         // pop the top element (opening bracket) and check if it matches with the current closing bracket
+         // 2. there is opening bracket, and it matches
          char ch = st.top();
          st.pop();
-         if ((it == ')' && ch == '(') || (it == ']' && ch == '[') || (it == '}' && ch == '{'))
-         {
+         if ((it == '}' && ch == '{') || (it == ']' && ch == '[') || (it == ')' && ch == '('))
             continue;
-         }
 
-         // if opening bracket doesn't match, return false
+         // 3. there is opening bracket, but it doesn't match
          else
             return false;
       }
    }
-   // if stack is empty after processing the string, all brackets matched correctly - True
-   // if not empty, it means there are unmatched opening brackets left - False
-   return st.empty();
-}
+
+   if (st.empty())
+      return true;
+   else
+      return false;
+};
 
 int main()
 {
