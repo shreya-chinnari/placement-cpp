@@ -4,9 +4,9 @@ using namespace std;
 int trap(vector<int> &arr)
 {
    int n = arr.size();
-   int left = 0, right = n - 1;   // Two pointers at both ends // O(1) space for pointers
-   int res = 0;                   // Accumulator for trapped water // O(1) space for accumulator
-   int leftMax = 0, rightMax = 0; // Track highest walls seen from each side // O(1) space for max height trackers
+   int left = 0, right = n - 1;   // Two pointers at both ends
+   int res = 0;                   // Accumulator for trapped water
+   int leftMax = 0, rightMax = 0; // Track highest walls seen from each side
 
    // TC: O(n) time → each element processed at most once, both pointers together traverse N elements
    while (left <= right)
