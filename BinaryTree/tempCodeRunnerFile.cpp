@@ -1,23 +1,4 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-// Node structure for the binary tree
-struct Node
-{
-   int data;
-   Node *left;
-   Node *right;
-   // Constructor to initialize
-   // the node with a value
-   Node(int val) : data(val), left(nullptr), right(nullptr) {}
-};
-
-class Solution
-{
-public:
-   // Function to check
+// Function to check
    // if a node is a leaf
    bool isLeaf(Node *root)
    {
@@ -129,39 +110,3 @@ public:
       addRightBoundary(root, res);
 
       return res;
-   }
-};
-
-// Helper function to
-// print the result
-void printResult(const vector<int> &result)
-{
-   for (int val : result)
-   {
-      cout << val << " ";
-   }
-   cout << endl;
-}
-
-int main()
-{
-   // Creating a sample binary tree
-   Node *root = new Node(1);
-   root->left = new Node(2);
-   root->right = new Node(3);
-   root->left->left = new Node(4);
-   root->left->right = new Node(5);
-   root->right->left = new Node(6);
-   root->right->right = new Node(7);
-
-   Solution solution;
-
-   // Get the boundary traversal
-   vector<int> result = solution.printBoundary(root);
-
-   // Print the result
-   cout << "Boundary Traversal: ";
-   printResult(result);
-
-   return 0;
-}
